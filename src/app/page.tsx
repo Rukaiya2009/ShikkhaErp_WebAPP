@@ -5,14 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useInView, useAnimation, AnimatePresence } from 'framer-motion';
 import { 
-  ClockIcon, 
-  DocumentTextIcon, 
-  UserGroupIcon, 
-  BanknotesIcon, 
-  ChartBarIcon, 
-  ShieldCheckIcon,
-  BookOpenIcon,
+  ArrowRightIcon, 
   CheckCircleIcon,
+  AcademicCapIcon,
+  UsersIcon,
   CreditCardIcon,
   BookOpenIcon,
   GlobeAltIcon,
@@ -38,9 +34,6 @@ import {
   PresentationChartLineIcon,
   PlayIcon,
   ArrowUpRightIcon,
-  GithubIcon,
-  LinkedinIcon,
-  TwitterIcon
 } from '@heroicons/react/24/outline';
 
 // ===================== COMPONENTS =====================
@@ -261,7 +254,7 @@ const DarkFeatureCard = ({
   </motion.div>
 );
 
-// ===================== MAIN PAGE ===================
+// ===================== MAIN PAGE =====================
 
 export default function Home() {
   const [showExitPopup, setShowExitPopup] = useState(false);
