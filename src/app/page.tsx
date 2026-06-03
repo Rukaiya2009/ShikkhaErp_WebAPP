@@ -261,7 +261,7 @@ const DarkFeatureCard = ({
   </motion.div>
 );
 
-// ===================== MAIN PAGE =====================
+// ===================== MAIN PAGE ===================
 
 export default function Home() {
   const [showExitPopup, setShowExitPopup] = useState(false);
