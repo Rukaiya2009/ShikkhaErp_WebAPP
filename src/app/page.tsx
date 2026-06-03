@@ -5,10 +5,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useInView, useAnimation, AnimatePresence } from 'framer-motion';
 import { 
-  ArrowRightIcon, 
+  ClockIcon, 
+  DocumentTextIcon, 
+  UserGroupIcon, 
+  BanknotesIcon, 
+  ChartBarIcon, 
+  ShieldCheckIcon,
+  BookOpenIcon,
   CheckCircleIcon,
-  AcademicCapIcon,
-  UsersIcon,
   CreditCardIcon,
   BookOpenIcon,
   GlobeAltIcon,
