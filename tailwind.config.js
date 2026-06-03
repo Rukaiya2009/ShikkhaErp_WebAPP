@@ -1,6 +1,6 @@
-import type { Config } from 'tailwindcss';
-
-const config: Config = {
+/* tailwind.config.js */
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
@@ -23,9 +23,17 @@ const config: Config = {
         sans: ['var(--font-inter)'],
         heading: ['var(--font-poppins)'],
       },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'pulse-slow': 'pulse 3s ease-in-out infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+      },
     },
   },
   plugins: [],
-};
-
-export default config;
+}

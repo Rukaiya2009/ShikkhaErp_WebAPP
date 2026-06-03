@@ -4,7 +4,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { navLinks } from '@/data/navigation';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 export default function Header() {
@@ -18,14 +17,22 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Features', href: '/features' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'Services', href: '/services' },
+    { name: 'Team', href: '/team' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Contact Us', href: '/contact' },
+  ];
+
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-primary/95 backdrop-blur-md shadow-lg' 
-        : 'bg-primary shadow-md'
+      scrolled ? 'bg-primary/95 backdrop-blur-md shadow-lg' : 'bg-primary shadow-md'
     }`}>
       <nav className="container-custom flex items-center justify-between h-16 lg:h-20">
-        {/* Logo */}
         <Link href="/" className="flex items-center gap-3 shrink-0">
           <div className="w-8 h-8 lg:w-10 lg:h-10 bg-accent rounded-lg flex items-center justify-center text-white font-bold text-lg lg:text-xl">
             S
@@ -35,7 +42,6 @@ export default function Header() {
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
           <div className="flex items-center bg-primary-light/30 rounded-full px-1 py-1 gap-1">
             {navLinks.map((link) => {
@@ -57,7 +63,6 @@ export default function Header() {
           </div>
         </div>
 
-        {/* CTA Button */}
         <div className="hidden md:block">
           <Link
             href="/contact"
@@ -67,7 +72,6 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden p-2 text-white hover:bg-primary-light/30 rounded-lg transition"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -76,7 +80,6 @@ export default function Header() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
       {mobileOpen && (
         <div className="md:hidden bg-primary border-t border-primary-light/30 px-4 pb-4 space-y-1 pt-2">
           {navLinks.map((link) => (
