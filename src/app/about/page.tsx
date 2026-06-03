@@ -1,5 +1,5 @@
 'use client';
-
+// At the top of your file, with other imports
 import Link from 'next/link';
 import { 
   HeartIcon, 
