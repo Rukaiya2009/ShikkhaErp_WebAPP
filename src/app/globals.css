@@ -1,30 +1,65 @@
+/* src/app/globals.css */
 @import "tailwindcss";
 
-@theme {
-  --color-primary: #1e3a8a;      /* Deep blue – your brand */
-  --color-primary-light: #3b5998;
-  --color-secondary: #0f172a;    /* Dark navy for text */
-  --color-accent: #0891b2;       /* Subtle teal for accents */
-  --color-cta: #f97316;          /* Orange for primary CTA */
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-poppins);
+/* Define CSS variables for your colors */
+:root {
+  --color-primary: #0f172a;
+  --color-primary-light: #1e293b;
+  --color-secondary: #1e293b;
+  --color-accent: #3b82f6;
+  --color-accent-light: #60a5fa;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-cta: #f97316;
+  --color-cta-hover: #ea580c;
+  --color-light: #f8fafc;
+  --color-dark: #0f172a;
 }
+
+/* Map CSS variables to Tailwind classes */
+.bg-primary { background-color: var(--color-primary); }
+.bg-primary-light { background-color: var(--color-primary-light); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-accent { background-color: var(--color-accent); }
+.bg-accent-light { background-color: var(--color-accent-light); }
+.bg-success { background-color: var(--color-success); }
+.bg-warning { background-color: var(--color-warning); }
+.bg-cta { background-color: var(--color-cta); }
+.bg-cta-hover { background-color: var(--color-cta-hover); }
+.bg-light { background-color: var(--color-light); }
+.bg-dark { background-color: var(--color-dark); }
+
+.text-primary { color: var(--color-primary); }
+.text-primary-light { color: var(--color-primary-light); }
+.text-secondary { color: var(--color-secondary); }
+.text-accent { color: var(--color-accent); }
+.text-accent-light { color: var(--color-accent-light); }
+.text-success { color: var(--color-success); }
+.text-warning { color: var(--color-warning); }
+.text-cta { color: var(--color-cta); }
+.text-light { color: var(--color-light); }
+.text-dark { color: var(--color-dark); }
+
+.border-primary { border-color: var(--color-primary); }
+.border-accent { border-color: var(--color-accent); }
+.border-light { border-color: var(--color-light); }
+
+.hover\:bg-primary:hover { background-color: var(--color-primary); }
+.hover\:bg-accent:hover { background-color: var(--color-accent); }
+.hover\:bg-cta:hover { background-color: var(--color-cta); }
+.hover\:bg-cta-hover:hover { background-color: var(--color-cta-hover); }
+.hover\:text-accent:hover { color: var(--color-accent); }
+.hover\:text-white:hover { color: white; }
 
 body {
-  font-family: var(--font-sans);
-  color: #0f172a;
-  background-color: #ffffff;
+  font-family: var(--font-inter);
+  color: var(--color-secondary);
+  background-color: var(--color-light);
 }
 
-/* Custom utility for extra white space */
+/* Custom container */
 .container-custom {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-/* More spacing */
-section {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
 }

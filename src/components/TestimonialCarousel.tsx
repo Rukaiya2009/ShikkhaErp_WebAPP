@@ -1,3 +1,4 @@
+/* src/components/TestimonialCarousel.tsx */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -30,7 +31,7 @@ export default function TestimonialCarousel() {
       <button onClick={next} className="absolute right-0 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow hover:bg-gray-50 border border-gray-200 z-10"><ChevronRightIcon className="w-5 h-5 text-gray-600" /></button>
       <div className="flex justify-center mt-6 gap-2">
         {testimonials.map((_, index) => (
-          <button key={index} onClick={() => goToSlide(index)} className={`w-3 h-3 rounded-full transition-colors ${currentIndex === index ? "bg-primary" : "bg-gray-300 hover:bg-gray-400"}`} />
+          <button key={index} onClick={() => goToSlide(index)} className={`w-3 h-3 rounded-full transition-colors ${currentIndex === index ? "bg-accent" : "bg-gray-300 hover:bg-gray-400"}`} />
         ))}
       </div>
     </div>
