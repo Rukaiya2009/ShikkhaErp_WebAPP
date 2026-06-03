@@ -21,6 +21,7 @@ export default function AboutPage() {
     <>
       {/* ===== HERO SECTION ===== */}
       <section className="relative bg-gradient-to-br from-primary via-primary to-primary-light text-white overflow-hidden py-24 lg:py-32">
+        {/* Animated background shapes */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/20 rounded-full blur-3xl -translate-y-24 translate-x-24 animate-pulse" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl translate-y-24 -translate-x-24 animate-pulse" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-3xl" />
@@ -289,7 +290,7 @@ export default function AboutPage() {
       </section>
 
       {/* ===== FINAL CTA ===== */}
-      <section className="bg-gradient-to-r from-primary to-primary-light py-20">
+      <section className="bg-gradient-to-r from-primary via-primary-light to-accent/30 py-20">
         <div className="container-custom text-center">
           <h3 className="text-3xl font-heading font-bold text-white mb-4">
             Ready to transform your school?

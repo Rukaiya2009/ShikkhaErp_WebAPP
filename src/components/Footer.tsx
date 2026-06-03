@@ -16,7 +16,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-primary text-gray-300 py-16 mt-0">
+    <footer className="bg-primary border-t border-white/10 py-16">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand Column */}
@@ -78,7 +78,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-primary-light/30 pt-6 text-center text-sm text-gray-400">
+        <div className="border-t border-white/10 pt-6 text-center text-sm text-gray-400">
           <p>© {currentYear} ShikkhaERP. All rights reserved.</p>
         </div>
       </div>
