@@ -32,8 +32,7 @@ import {
   TrophyIcon,
   UserGroupIcon,
   PresentationChartLineIcon,
-  PlayIcon,
-  ArrowUpRightIcon,
+  PlayIcon
 } from '@heroicons/react/24/outline';
 
 // ===================== COMPONENTS =====================
@@ -354,22 +353,26 @@ export default function Home() {
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Link
-                  href="#demo-form"
-                  className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
-                >
-                  <span className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                  Request Free Demo
-                  <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/features"
-                  className="inline-flex items-center gap-2 border border-white/30 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1"
-                >
-                  Explore Features
-                </Link>
-              </div>
+ 
+<div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+  {/* Button 1: Request Free Demo (CHANGED to Cyan/Teal) */}
+  <Link
+    href="#demo-form"
+    className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-teal-500 text-white px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
+  >
+    <span className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+    Request Free Demo
+    <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+  </Link>
+
+  {/* Button 2: Explore Features (Unchanged) */}
+  <Link
+    href="/features"
+    className="inline-flex items-center gap-2 border border-white/30 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1"
+  >
+    Explore Features
+  </Link>
+</div>
               
               {/* Trust Indicators */}
               <div className="flex flex-wrap justify-center gap-8 text-sm text-white/60">
