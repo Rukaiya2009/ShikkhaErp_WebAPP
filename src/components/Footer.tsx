@@ -41,7 +41,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed mb-6">
-              Smart solutions for modern education management. Empowering schools with innovative ERP and LMS technology since 2024.
+              Smart solutions for modern education management. Empowering schools with innovative ERP and advanced technology since 2020.
             </p>
             
             {/* Social Media Icons */}
