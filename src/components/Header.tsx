@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { navLinks } from '@/data/navigation';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -18,34 +19,37 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-white'
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled 
+        ? 'bg-secondary/95 backdrop-blur-lg border-b border-white/10 shadow-lg' 
+        : 'bg-secondary'
     }`}>
-      <nav className="container-custom flex items-center justify-between h-16">
-        {/* Logo with Graduation Cap */}
+      <nav className="container-custom flex items-center justify-between h-16 lg:h-20">
+        {/* Logo - Graduation Cap with Tail + Fixed Colors */}
         <Link href="/" className="flex items-center gap-3 shrink-0">
-          <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center text-white">
+          <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              className="w-6 h-6"
+              fill="white" 
+              className="w-5 h-5"
             >
-              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-              <path d="M6 12v5c0 1.5 3 2.5 6 2.5s6-1 6-2.5v-5" />
+              {/* Graduation Cap with Tail */}
+              <path d="M12 3L1 9l11 6 11-6-11-6z" />
+              <path d="M12 15l-9-4.5V17l9 4.5 9-4.5v-6.5L12 15z" />
+              <path d="M12 19.5L5 16.5V18l7 3.5 7-3.5v-1.5l-7 3.5z" />
             </svg>
           </div>
-          <span className="text-xl font-heading font-bold text-secondary hidden sm:block">
-            Shikkha<span className="text-primary">ERP</span>
-          </span>
+          <div className="flex flex-col">
+            <span className="text-xl font-heading font-bold text-white leading-none">
+              Shikkha<span className="text-amber-400">ERP</span>
+            </span>
+            <span className="text-[10px] text-blue-300 font-medium">Smart School Management</span>
+          </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center bg-gray-100 rounded-full px-1 py-1 gap-1">
+        {/* Desktop Navigation - Dark Glassmorphism Pill */}
+        <div className="hidden md:flex items-center bg-white/10 backdrop-blur-sm rounded-full px-2 py-1.5 gap-0.5 border border-white/10 shadow-sm">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -54,8 +58,8 @@ export default function Header() {
                 href={link.href}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   isActive
-                    ? 'bg-white shadow-sm text-secondary'
-                    : 'text-gray-600 hover:text-secondary hover:bg-white/50'
+                    ? 'bg-white text-secondary shadow-md'
+                    : 'text-gray-300 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {link.name}
@@ -64,11 +68,11 @@ export default function Header() {
           })}
         </div>
 
-        {/* CTA Button - Dark */}
+        {/* CTA Button - Changed to Emerald/Teal */}
         <div className="hidden md:block">
           <Link
             href="/contact"
-            className="bg-secondary text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-secondary/90 transition shadow-md"
+            className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300"
           >
             Get Started
           </Link>
@@ -76,7 +80,7 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden p-2 text-secondary"
+          className="md:hidden p-2 text-white hover:bg-white/10 rounded-lg transition"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
@@ -84,27 +88,36 @@ export default function Header() {
       </nav>
 
       {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-white border-t px-4 pb-4 space-y-1 pt-2">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="block py-2.5 px-4 rounded-lg text-secondary hover:bg-gray-50 transition"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Link
-            href="/contact"
-            className="block mt-3 text-center bg-secondary text-white py-2.5 rounded-lg font-medium hover:bg-secondary/90 transition"
-            onClick={() => setMobileOpen(false)}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-secondary border-t border-white/10 px-4 pb-6 pt-2 shadow-xl"
           >
-            Get Started
-          </Link>
-        </div>
-      )}
+            <div className="space-y-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="block py-3 px-4 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <Link
+                href="/contact"
+                className="block mt-3 text-center bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-3 rounded-lg font-medium hover:shadow-lg transition"
+                onClick={() => setMobileOpen(false)}
+              >
+                Get Started
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
